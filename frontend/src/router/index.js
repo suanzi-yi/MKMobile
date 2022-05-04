@@ -4,6 +4,10 @@ import Index from '@/pages/Index'
 import Login from '@/pages/Login'
 import Register from '@/pages/Register'
 import Home from '@/pages/Home'
+import Product from '@/pages/Product'
+import Message from '@/pages/Message'
+import Setting from '@/pages/Setting'
+import Order from '@/pages/Order'
 Vue.use(Router)
 
 export default new Router({
@@ -22,7 +26,26 @@ export default new Router({
     },
     { 
       path: '/home',
-      component:Home
+      component:Home,
+      redirect:'/home/product',
+      children: [
+        {
+          path: 'product',
+          component:Product
+        },
+        {
+          path: 'message',
+          component:Message
+        },
+        {
+          path: 'order',
+          component:Order
+        },
+        {
+          path: 'setting',
+          component:Setting
+        }
+      ]
     }
   ]
 })
