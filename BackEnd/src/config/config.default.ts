@@ -15,10 +15,10 @@ export default {
      * 单数据库实例
      */
     type: 'mysql',
-    host: '127.0.0.1',
+    host: '114.116.79.120',
     port: 3306,
     username: 'root',
-    password: 'root',
+    password: 'suanzi',
     database: 'mkmobile',     //mkmobile
     synchronize: true,     // 如果第一次使用，不存在表，有同步的需求可以写 true
     logging: false,

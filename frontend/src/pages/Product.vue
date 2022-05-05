@@ -116,7 +116,7 @@
     </van-overlay>
 
     <!-- 订单详细界面遮罩层 -->
-    <van-overlay :show="ifbuy">
+    <van-overlay :show="ifbuy" :lock-scroll="false">
       <!-- 包裹层 -->
       <div class="wrapper">
         <!-- 白块显示层 -->
