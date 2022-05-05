@@ -1,7 +1,7 @@
 import { IMiddleware } from '@midwayjs/core';
 import { Inject, Middleware } from '@midwayjs/decorator';
 import { NextFunction, Context } from '@midwayjs/koa';
-import { JwtService } from '_@midwayjs_jwt@3.3.5@@midwayjs/jwt';
+import { JwtService } from '@midwayjs/jwt';
 //鉴权器中间件
 @Middleware()
 export class AdminMiddleWare implements IMiddleware<Context, NextFunction> {

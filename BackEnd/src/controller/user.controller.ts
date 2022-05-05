@@ -1,5 +1,5 @@
 import { Body, Controller, Inject, Post } from "@midwayjs/decorator";
-import { JwtService } from "_@midwayjs_jwt@3.3.5@@midwayjs/jwt";
+import { JwtService } from "@midwayjs/jwt";
 import { UserService } from "../service/user.service";
 
 

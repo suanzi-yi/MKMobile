@@ -13,6 +13,7 @@ Vue.use(Vant);//使用vant组件
 
 //默认api地址
 axios.defaults.baseURL = 'http://127.0.0.1:7001/v1/api'
+// axios.defaults.baseURL = 'http://192.168.203.1:7001/v1/api'
 Vue.prototype.$http = axios     //绑定axios
 //拦截器
 axios.interceptors.request.use(config => {
