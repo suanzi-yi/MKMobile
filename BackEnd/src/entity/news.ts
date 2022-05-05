@@ -12,4 +12,7 @@ export class News{
 
     @Column()
     url: string;
+
+    @Column()
+    date: string;
 }

@@ -2,9 +2,10 @@
   <div>
     <!-- 头部区域 -->
     <van-nav-bar
-      title="头部"
+      title="MK|影武联盟"
       right-text="登录/注册"
       @click-right="tologin"
+      background-color="red"
     ></van-nav-bar>
     <!-- 轮播图区域 -->
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
@@ -32,11 +33,18 @@
         >
       </div>
       <!-- 头条内容 -->
-      <div>
-        <hr>
+      <!-- <div>
         <van-cell :title="item.title" is-link :url="item.url"  v-for="item in article" :key="item.id">
         </van-cell>
+       </div> -->
+
+      <div v-for="item in article" :key="item.id">
+        <a :href="item.url" style="padding:2px;font-size:10px">{{item.title}}</a>
+        <span style="float:right; margin-right:15px;font-size:12px;padding:2px;color:#409EFF">{{item.date}}</span>
+      <hr>
       </div>
+
+     
 
         <hr />
         <hr />
@@ -294,6 +302,8 @@ export default {
 
 <style>
 .my-swipe .van-swipe-item {
+  width: 100%;
+  height: 200px;
   color: #fff;
   font-size: 20px;
   line-height: 0px;
@@ -313,15 +323,18 @@ p {
   margin-right: 5px;
 }
 .image {
+    /* display: inline-block; */
+    /* width: 100%; */
+    /* height: 100px; */
   object-fit: fill;
   width: auto;
   height: auto;
-  max-width: 100%;
-  max-height: 80%;
-  /* width: 100%;
-  height: 100%; */
-  object-fit: cover;
-  object-position: 50% 20%;
+  /* max-width: 50%; */
+  /* max-height: 50%; */
+  width: 100%;
+  height: 100%; 
+  /* object-fit: cover; */
+  /* object-position: 50% 20%; */
 }
 
 </style>

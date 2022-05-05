@@ -10,7 +10,7 @@ import Setting from '@/pages/Setting'
 import Order from '@/pages/Order'
 Vue.use(Router)
 
-export default new Router({
+const router =new Router({
   routes: [ 
     { 
       path: '/', 
@@ -49,3 +49,26 @@ export default new Router({
     }
   ]
 })
+//前置路由守卫
+router.beforeEach((to,from,next) => {
+  const username =window.localStorage.getItem('username');
+  const token = window.localStorage.getItem('token')
+  if(to.path=='/login'){
+    if(username&&token){
+      next('/home')
+    }else{
+      next()
+    }
+  }
+  if(to.path=='/'||to.path=='/register'){return next()}
+  if(to.path!='/'||to.path!='/login'||to.path!='/register')
+  {
+    if (username&&token) {
+      next()
+    }else{
+      next('/login')
+    }
+  }
+})
+
+export default router
