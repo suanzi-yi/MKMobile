@@ -4,7 +4,8 @@
     <van-nav-bar
       title="消息中心"
     />
-      message
+      <!-- 空状态 -->
+    <van-empty description="暂无消息" image="https://img01.yzcdn.cn/vant/custom-empty-image.png" />
   </div>
 </template>
 

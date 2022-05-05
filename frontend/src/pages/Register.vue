@@ -123,12 +123,23 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log("提交了")
       const user ={
           username:this.username,
           password:this.password
       }
+      this.$http.post('user/register',user).then((result) => {
+        if(result.data.success){
+          this.$router.push('/login')
+          this.$toast.success("注册成功")
+        }
+        else{
+          this.$toast.fail(result.data.msg)
+        }
+      }).catch((err) => {
+        
+      });
       console.log(user);
+
     },
     reset() {
       this.$refs["allform"].resetValidation();

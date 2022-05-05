@@ -12,10 +12,14 @@ Vue.config.productionTip = false
 Vue.use(Vant);//使用vant组件
 
 //默认api地址
-axios.defaults.baseURL = ''
+axios.defaults.baseURL = 'http://127.0.0.1:7001/v1/api'
 Vue.prototype.$http = axios     //绑定axios
-
-
+//拦截器
+axios.interceptors.request.use(config => {
+  config.headers.token = window.localStorage.getItem('token')
+  // 在最后必须 return config
+  return config
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

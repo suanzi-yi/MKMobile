@@ -3,9 +3,7 @@
     <!-- 头部区域 -->
     <van-nav-bar
       title="头部"
-      left-text="更多"
       right-text="登录/注册"
-      @click-left="show = !show"
       @click-right="tologin"
     ></van-nav-bar>
     <!-- 轮播图区域 -->
@@ -29,16 +27,19 @@
           >精彩文章</span
         >
         <span
-          @click="toallnews"
           style="float: right; margin-right: 6px; font-size: 8px"
           >更多</span
         >
       </div>
       <!-- 头条内容 -->
       <div>
-        <hr />
-        <hr />
+        <hr>
+        <van-cell :title="item.title" is-link :url="item.url"  v-for="item in article" :key="item.id">
+        </van-cell>
       </div>
+
+        <hr />
+        <hr />
     </div>
 
     <!-- 精彩视频 -->
@@ -56,7 +57,6 @@
           >精彩视频</span
         >
         <span
-          @click="toallvideo"
           style="float: right; margin-right: 6px; font-size: 8px"
           >更多</span
         >
@@ -82,7 +82,6 @@
           >产品中心</span
         >
         <span
-          @click="toallvideo"
           style="float: right; margin-right: 6px; font-size: 8px"
           >更多</span
         >
@@ -156,7 +155,6 @@
           >武术基地</span
         >
         <span
-          @click="toallvideo"
           style="float: right; margin-right: 6px; font-size: 8px"
           >更多</span
         >
@@ -216,7 +214,6 @@
           >联系我们</span
         >
         <span
-          @click="toallvideo"
           style="float: right; margin-right: 6px; font-size: 8px"
           >更多</span
         >
@@ -276,6 +273,15 @@ export default {
         { name: require("../assets/pictures/Head004.jpg"), id: "4" },
       ],
     };
+  },
+  mounted(){
+    this.$http.get('/news/getnews').then((result) => {
+      console.log(result.data);
+      this.article=result.data.data
+      console.log("article",this.article);
+    }).catch((err) => {
+      console.log(err);
+    });
   },
   methods: {
       tologin(){

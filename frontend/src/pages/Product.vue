@@ -335,7 +335,13 @@ export default {
         })
         .then(() => {
           // on confirm
-          this.onSubmit();
+          //提交判空
+  
+          if(this.productform.workrname!=''&&this.productform.fieldValue!=''&&this.productform.workdate!=''&&this.productform.workGroup!=''&&this.productform.workproduct!=''&&this.productform.phone!='') {
+            this.onSubmit();
+          }else{
+            this.$toast.fail("请填写正确格式！")
+          }
         })
         .catch(() => {
           // on cancel
@@ -343,7 +349,20 @@ export default {
         });
     },
     onSubmit() {
+      this.productform.username=window.localStorage.getItem("username")
       console.log(this.productform);
+      this.$http.post('/orders/order',this.productform).then((result) => {
+        if(result.data.success) {
+          this.ifbuy=false
+          Object.keys(this.productform).forEach(key => (this.productform[key] = ''));
+          console.log(this.productform);
+          this.$toast.success("下单成功")
+        }else{
+          this.$toast.fail(result.data.msg)
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
     },
   },
 };

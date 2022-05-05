@@ -9,7 +9,7 @@ import { join } from 'path';
 import { DefaultErrorFilter } from './filter/default.filter';
 import { NotFoundFilter } from './filter/notfound.filter';
 import { ReportMiddleware } from './middleware/report.middleware';
-
+import { AdminMiddleWare} from './middleware/admin.middleware';
 @Configuration({
   imports: [
     koa,
@@ -30,7 +30,7 @@ export class ContainerLifeCycle {
 
   async onReady() {
     // add middleware
-    this.app.useMiddleware([ReportMiddleware]);
+    this.app.useMiddleware([ReportMiddleware,AdminMiddleWare]);
     // add filter
     this.app.useFilter([NotFoundFilter, DefaultErrorFilter]);
   }

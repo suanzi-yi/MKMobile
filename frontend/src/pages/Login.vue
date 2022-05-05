@@ -92,12 +92,23 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log("tijiaole")
       const user ={
           username:this.username,
           password:this.password
       }
-      console.log(user);
+      this.$http.post('user/login',user).then((result) => {
+        if(result.data.success) {
+          window.localStorage.setItem("token",result.data.token)
+          window.localStorage.setItem("username",this.username)
+          this.$router.push('/home')
+          this.$toast.success("登录成功")
+        }
+        else {
+          this.$toast.fail(result.data.msg)
+        }
+      }).catch((err) => {
+        
+      });
     },
     reset() {
       this.$refs["allform"].resetValidation();
