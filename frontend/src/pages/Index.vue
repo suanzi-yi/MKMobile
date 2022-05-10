@@ -104,11 +104,11 @@
           title="主流型产品"
         >
           <template #tags>
-            <van-tag plain type="danger">主流型产品</van-tag>
-            <van-tag plain type="danger">体育馆武术演出</van-tag>
+            <van-tag plain type="danger" class="biaoqian">主流型产品</van-tag>
+            <van-tag plain type="danger" class="biaoqian">体育馆武术演出</van-tag>
           </template>
           <template #footer>
-            <van-button size="mini" @click="tologin">了解详细</van-button>
+            <van-button size="mini" @click="tologin">了解详情</van-button>
           </template>
         </van-card>
         <!-- 2 -->
@@ -119,10 +119,10 @@
           title="特殊期产品"
         >
           <template #tags>
-            <van-tag plain type="danger">特殊期产品</van-tag>
-            <van-tag plain type="danger">五一特色武术演出</van-tag>
-            <van-tag plain type="danger">五四青年节定制演出</van-tag>
-            <van-tag plain type="danger">建党100周年武术演出</van-tag>
+            <van-tag plain type="danger" class="biaoqian">五一特色武术演出</van-tag>
+            <van-tag plain type="danger" class="biaoqian">特殊期产品</van-tag>
+            <van-tag plain type="danger" class="biaoqian">五四青年节定制演出</van-tag>
+            <van-tag plain type="danger" class="biaoqian">建党100周年武术演出</van-tag>
           </template>
           <template #footer>
             <van-button size="mini"  @click="tologin">了解详情</van-button>
@@ -136,9 +136,9 @@
           title="创新型产品"
         >
           <template #tags>
-            <van-tag plain type="danger">创新型产品</van-tag>
-            <van-tag plain type="danger">武术套路演出教学</van-tag>
-            <van-tag plain type="danger">武术对打表演</van-tag>
+            <van-tag plain type="danger" class="biaoqian">创新型产品</van-tag>
+            <van-tag plain type="danger" class="biaoqian">武术套路演出教学</van-tag>
+            <van-tag plain type="danger" class="biaoqian">武术对打表演</van-tag>
           </template>
           <template #footer>
             <van-button size="mini"  @click="tologin">了解详情</van-button>
